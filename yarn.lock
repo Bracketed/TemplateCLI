@@ -5,9 +5,9 @@ __metadata:
   version: 8
   cacheKey: 10c0
 
-"@bracketed/create-template@workspace:.":
+"@bracketed/create-templates@workspace:.":
   version: 0.0.0-use.local
-  resolution: "@bracketed/create-template@workspace:."
+  resolution: "@bracketed/create-templates@workspace:."
   dependencies:
     "@bracketed/gitdownloader": "npm:^1.0.1"
     "@bracketed/typescript-config": "npm:^4.4.0"
@@ -21,7 +21,7 @@ __metadata:
     ora: "npm:^7.0.1"
     typescript: "npm:^5.3.3"
   bin:
-    create-template: ./dist/index.js
+    create-templates: ./dist/index.js
   languageName: unknown
   linkType: soft
 

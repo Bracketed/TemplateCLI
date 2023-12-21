@@ -1,5 +1,5 @@
 {
-	"name": "@bracketed/create-template",
+	"name": "@bracketed/create-templates",
 	"version": "1.0.0",
 	"packageManager": "yarn@4.0.2",
 	"author": "bracketed",
@@ -46,7 +46,9 @@
 		"lint:all": "yarn prettier --write .",
 		"validate:all": "yarn prettier --check ."
 	},
-	"bin": "./dist/index.js",
+	"bin": {
+		"create-templates": "./dist/index.js"
+	},
 	"keywords": [
 		"bracketed",
 		"typescript",
