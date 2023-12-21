@@ -1,6 +1,6 @@
 {
 	"name": "@bracketed/create-templates",
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"packageManager": "yarn@4.0.2",
 	"author": "bracketed",
 	"type": "module",
@@ -46,9 +46,7 @@
 		"lint:all": "yarn prettier --write .",
 		"validate:all": "yarn prettier --check ."
 	},
-	"bin": {
-		"create-templates": "./dist/index.js"
-	},
+	"bin": "./dist/index.js",
 	"keywords": [
 		"bracketed",
 		"typescript",
@@ -62,4 +60,3 @@
 	],
 	"description": "Download and use my templates using this command line system!"
 }
-
