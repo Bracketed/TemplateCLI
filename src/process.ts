@@ -59,6 +59,7 @@ function run() {
 				output.log(`${chalk.bold(chalk.red('ERR!'))} No template name supplied in command.`);
 				return output.log([
 					'If you think that this error was a mistake, try running the command again!',
+					"If you're looking for templates, maybe look in the repositories section of ninjaninja140's profile or the Bracketed Organisation!",
 					'If this error continues to persist, open an issue on the TemplateCLI Repository here: https://github.com/bracketed/templatecli/issues',
 				]);
 			}
