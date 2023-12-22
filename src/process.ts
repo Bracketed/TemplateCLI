@@ -44,22 +44,22 @@ function run() {
 			);
 			output.log();
 
-			let templateName = options.template.toLowerCase() || undefined;
+			if (!options.template) {
+				output.log(`${chalk.bold(chalk.red('ERR!'))} No template name supplied in command.`);
+				return output.log([
+					'If you think that this error was a mistake, try running the command again!',
+					"If you're looking for templates, maybe look in the repositories section of ninjaninja140's profile or the Bracketed Organisation!",
+					'If this error continues to persist, open an issue on the TemplateCLI Repository here: https://github.com/bracketed/templatecli/issues',
+				]);
+			}
+
+			let templateName = options.template.toLowerCase();
 			const templateDirectory = directory || undefined;
 
 			if (!templateDirectory) {
 				output.log(`${chalk.bold(chalk.red('ERR!'))} No directory supplied in command.`);
 				return output.log([
 					'If you think that this error was a mistake, try running the command again!',
-					'If this error continues to persist, open an issue on the TemplateCLI Repository here: https://github.com/bracketed/templatecli/issues',
-				]);
-			}
-
-			if (!templateName) {
-				output.log(`${chalk.bold(chalk.red('ERR!'))} No template name supplied in command.`);
-				return output.log([
-					'If you think that this error was a mistake, try running the command again!',
-					"If you're looking for templates, maybe look in the repositories section of ninjaninja140's profile or the Bracketed Organisation!",
 					'If this error continues to persist, open an issue on the TemplateCLI Repository here: https://github.com/bracketed/templatecli/issues',
 				]);
 			}
@@ -163,11 +163,21 @@ function run() {
 			const GitCloneBuffer = output.buffer('Downloading Template...');
 			GitCloneBuffer.start();
 
-			const repo = await gitDownload(`https://github.com/${Repository}`, targetPath)
+			const repo = await gitDownload(Repository, targetPath)
 				.then(() => true)
 				.catch(() => false);
 
 			if (!repo) {
+				GitCloneBuffer.fail(
+					`${chalk.bold(chalk.red('ERR!'))} There was an error while downloading the Template.`
+				);
+				return output.log([
+					'If you think that this error was a mistake, try running the command again!',
+					'If this error continues to persist, open an issue on the TemplateCLI Repository here: https://github.com/bracketed/templatecli/issues',
+				]);
+			}
+
+			if (!fs.existsSync(targetPath)) {
 				GitCloneBuffer.fail(
 					`${chalk.bold(chalk.red('ERR!'))} There was an error while downloading the Template.`
 				);
@@ -182,6 +192,7 @@ function run() {
 
 			const packageBuffer = output.buffer('Updating package.json with newer details...');
 			packageBuffer.start();
+
 			const packageJsonPath = path.join(targetPath, 'package.json');
 			if (fs.existsSync(packageJsonPath)) {
 				const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, 'utf-8'));
