@@ -1,7 +1,7 @@
 import { Command } from 'commander';
-import * as download from '@bracketed/gitdownloader';
-import * as path from 'path';
-import * as fs from 'fs';
+import gitDownload from '@bracketed/gitdownloader';
+import * as path from 'node:path';
+import * as fs from 'node:fs';
 import { output } from './utilities/output.js';
 import { github } from './utilities/github.js';
 import { LIB_VERSION } from './utilities/version.js';
@@ -163,8 +163,7 @@ function run() {
 			const GitCloneBuffer = output.buffer('Downloading Template...');
 			GitCloneBuffer.start();
 
-			const repo = await download
-				.download(Repository, targetPath, { type: 'github' })
+			const repo = await gitDownload(`https://github.com/${Repository}`, targetPath)
 				.then(() => true)
 				.catch(() => false);
 

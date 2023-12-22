@@ -1,5 +1,5 @@
-name: Upload changed to the npm and yarn registries
-run-name: Upload changed to the npm and yarn registries
+name: Upload changes to the npm and yarn registries
+run-name: Upload changes to the npm and yarn registries
 
 on:
     push:
