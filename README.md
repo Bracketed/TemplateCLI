@@ -5,7 +5,7 @@ A Template creation system by ninjaninja140 & Team Bracketed!
 Welcome to TemplateCLI, this is a tool made for cloning template repositories made by Team Bracketed or ninjaninja140.
 To use this tool, all you have to do is run either of these commands:
 Yarn: `yarn create @bracketed/templates <DIRECTORY> --template <TEMPLATE NAME>`
-NPM: `npx @bracketed/templates <DIRECTORY> --template <TEMPLATE NAME>`
+NPM: `npx @bracketed/create-templates <DIRECTORY> --template <TEMPLATE NAME>`
 
 A rundown of what things do and the extras:
 In Directory you can put either a dot (".") to transform the local directory that the command was ran into the template project, or you can supply a name for the project, where the name of the project will be made into a folder which will contain the template project.

@@ -18,3 +18,7 @@ jobs:
             - uses: JS-DevTools/npm-publish@v3.0.1
               with:
                   token: ${{ secrets.PAT }}
+            - uses: JS-DevTools/npm-publish@v3.0.1
+              with:
+                  token: ${{ secrets.TOKEN }}
+                  registry: 'https://npm.pkg.github.com'
